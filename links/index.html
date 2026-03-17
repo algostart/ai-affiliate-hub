@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools & Resources — My Links</title>
+  <meta name="description" content="Curated AI tools, blog posts, landing pages, and resources. Vidnoz, Copy.ai, Framer, Beehiiv, and more.">
+  <style>
+    :root {
+      --color-primary: #1e293b;
+      --color-primary-hover: #0f172a;
+      --color-bg: #ffffff;
+      --color-surface: #f8fafc;
+      --color-text: #1e293b;
+      --color-text-light: #64748b;
+      --color-border: #e2e8f0;
+      --color-link-bg: #ffffff;
+      --color-link-border: #e2e8f0;
+      --color-link-hover: #f1f5f9;
+      --avatar-border: #e2e8f0;
+      --radius: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .bio-container {
+      width: 100%;
+      max-width: 480px;
+      padding: 48px 20px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar-placeholder {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid var(--avatar-border);
+      background: var(--color-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+    .profile-tagline {
+      font-size: 15px;
+      color: var(--color-text-light);
+      text-align: center;
+      margin-bottom: 32px;
+      line-height: 1.4;
+      max-width: 360px;
+    }
+
+    .category-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-light);
+      margin-bottom: 12px;
+      margin-top: 8px;
+      width: 100%;
+      text-align: left;
+      padding-left: 4px;
+    }
+
+    .link-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .link-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--color-link-bg);
+      border: 1px solid var(--color-link-border);
+      border-radius: var(--radius);
+      transition: background 0.15s, transform 0.1s;
+      cursor: pointer;
+    }
+    .link-item:hover {
+      background: var(--color-link-hover);
+      transform: translateY(-1px);
+    }
+    .link-item:active { transform: translateY(0); }
+    .link-icon { font-size: 20px; flex-shrink: 0; }
+    .link-label { font-size: 15px; font-weight: 500; flex-grow: 1; }
+    .link-arrow { font-size: 14px; color: var(--color-text-light); flex-shrink: 0; }
+
+    .spacer { height: 16px; }
+
+    .bio-footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+    .bio-footer a { color: #155DFC; }
+    .disclosure-text {
+      font-size: 11px;
+      color: var(--color-text-light);
+      margin-bottom: 8px;
+      max-width: 360px;
+    }
+
+    @media (max-width: 480px) {
+      .bio-container { padding: 32px 16px 24px; }
+      .link-item { padding: 14px 16px; }
+    }
+    @supports (-webkit-touch-callout: none) {
+      body { min-height: -webkit-fill-available; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bio-container">
+
+    <div class="avatar-placeholder">🚀</div>
+
+    <h1 class="profile-name">AI Tools & Resources</h1>
+    <p class="profile-tagline">Curated AI tools, reviews, tutorials, and landing pages. Everything I use to create content faster.</p>
+
+    <!-- Blog Posts — Replace https://yoursite.com with your domain -->
+    <div class="category-label">Blog Posts</div>
+    <div class="link-list">
+      <a href="https://yoursite.com/blog/vidnoz-review" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">📝</span>
+        <span class="link-label">Vidnoz Review</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/copyai-review" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">✍️</span>
+        <span class="link-label">Copy.ai Review</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/vidnoz-vs-heygen" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">⚖️</span>
+        <span class="link-label">Vidnoz vs HeyGen</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/top-3-ai-video-tools" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🎬</span>
+        <span class="link-label">Top 3 AI Video Tools</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/top-7-ai-affiliate-programs" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">💰</span>
+        <span class="link-label">Top 7 AI Affiliate Programs</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/how-to-use-vidnoz" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">📖</span>
+        <span class="link-label">How to Use Vidnoz</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/framer-beehiiv-review" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🛠️</span>
+        <span class="link-label">Framer + Beehiiv Review</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/blog/ai-content-pipeline-tutorial" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🔄</span>
+        <span class="link-label">AI Content Pipeline Tutorial</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Landing Pages -->
+    <div class="category-label">Landing Pages</div>
+    <div class="link-list">
+      <a href="https://yoursite.com/landing/vidnoz" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🎥</span>
+        <span class="link-label">Vidnoz Landing Page</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/landing/copyai" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">📄</span>
+        <span class="link-label">Copy.ai Landing Page</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/landing/framer" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🌐</span>
+        <span class="link-label">Framer Landing Page</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/landing/beehiiv-showcase" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">📧</span>
+        <span class="link-label">Beehiiv Showcase</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/landing/getresponse-showcase" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">📬</span>
+        <span class="link-label">GetResponse Showcase</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://yoursite.com/landing/free-ai-tools-cheat-sheet" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">📋</span>
+        <span class="link-label">Free AI Tools Cheat Sheet</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <!-- Social Profiles -->
+    <div class="category-label">Connect</div>
+    <div class="link-list">
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">💼</span>
+        <span class="link-label">LinkedIn</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://x.com/yourprofile" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">𝕏</span>
+        <span class="link-label">Twitter / X</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://reddit.com/user/yourprofile" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🔴</span>
+        <span class="link-label">Reddit</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://tiktok.com/@yourprofile" target="_blank" rel="noopener" class="link-item">
+        <span class="link-icon">🎵</span>
+        <span class="link-label">TikTok</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="bio-footer">
+      <p class="disclosure-text">Some links on this page are affiliate links. I may earn a commission if you purchase through them, at no extra cost to you.</p>
+      <p>Built with <a href="https://list.affitor.com">Affiliate Skills by Affitor</a></p>
+    </div>
+
+  </div>
+
+</body>
+</html>

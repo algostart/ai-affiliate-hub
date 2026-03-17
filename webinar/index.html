@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Demo: How to Create AI Marketing Videos That Convert | Free Training</title>
+  <style>
+    :root {
+      --color-primary: #7c3aed;
+      --color-primary-hover: #6d28d9;
+      --color-bg: #ffffff;
+      --color-surface: #f8fafc;
+      --color-text: #1e293b;
+      --color-text-light: #64748b;
+      --color-accent: #f59e0b;
+      --color-border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+    .urgency-bar {
+      background: linear-gradient(90deg, #7c3aed 0%, #6d28d9 100%);
+      color: white;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--color-text-light);
+      margin-bottom: 24px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-date {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 32px;
+    }
+    .form-box {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 400px;
+      margin: 0 auto 24px;
+      text-align: left;
+    }
+    .form-box label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .form-box input {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .form-box input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      background: var(--color-primary);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: var(--color-primary-hover); }
+    .privacy-note {
+      font-size: 12px;
+      color: var(--color-text-light);
+      margin-top: 12px;
+    }
+    .seats {
+      font-size: 14px;
+      color: var(--color-text-light);
+    }
+    .countdown-section {
+      background: var(--color-surface);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .countdown-label {
+      font-size: 14px;
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .countdown-box {
+      background: white;
+      border: 2px solid var(--color-primary);
+      border-radius: 8px;
+      padding: 16px 24px;
+      min-width: 80px;
+    }
+    .countdown-box span {
+      display: block;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .countdown-box small {
+      font-size: 11px;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+    }
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      color: var(--color-text);
+    }
+    .learn-list {
+      list-style: none;
+    }
+    .learn-list li {
+      padding: 12px 0 12px 36px;
+      position: relative;
+    }
+    .learn-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .speaker {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .speaker-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), #a78bfa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .speaker-info h3 { font-size: 20px; margin-bottom: 4px; }
+    .speaker-title { color: var(--color-text-light); font-size: 14px; margin-bottom: 12px; }
+    .agenda-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .agenda-item:last-child { border-bottom: none; }
+    .agenda-time { font-weight: 600; color: var(--color-primary); margin-bottom: 4px; }
+    .agenda-title { font-size: 18px; margin-bottom: 8px; }
+    .agenda-desc { color: var(--color-text-light); font-size: 15px; }
+    .who-list { list-style: none; }
+    .who-list li { padding: 8px 0 8px 24px; position: relative; }
+    .who-list li::before { content: "•"; position: absolute; left: 0; color: var(--color-primary); }
+    .testimonial {
+      background: var(--color-surface);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .testimonial blockquote { font-style: italic; margin-bottom: 12px; }
+    .testimonial cite { font-size: 14px; color: var(--color-text-light); }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 20px 0;
+    }
+    .faq-item summary { font-weight: 600; cursor: pointer; }
+    .faq-item p { margin-top: 12px; color: var(--color-text-light); }
+    .ftc-disclosure {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 14px;
+      margin: 32px 0 24px;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #666;
+      font-size: 13px;
+      border-top: 1px solid var(--color-border);
+    }
+    footer a { color: #155DFC; text-decoration: none; }
+    @media (max-width: 768px) {
+      .hero, section { padding-left: 16px; padding-right: 16px; }
+      .countdown-box { min-width: 70px; }
+      .countdown-box span { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="urgency-bar">
+    FREE LIVE TRAINING — AI Marketing Videos That Convert — [Date TBD] — 47 Spots Left
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">Free Live Webinar</div>
+    <h1>How to Create AI Marketing Videos That Convert — Even If You've Never Made a Video</h1>
+    <p class="hero-sub">Join this live demo to see exactly how to turn AI video tools into high-converting marketing assets. We'll cover Vidnoz and the exact workflow I use for clients.</p>
+    <p class="hero-date">📅 [Date & Time — Update in setup]</p>
+
+    <div class="form-box">
+      <form id="reg-form-1" onsubmit="handleSubmit(event)">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" placeholder="Your first name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn">Reserve My Spot — It's Free</button>
+      </form>
+      <p class="privacy-note">No spam. Unsubscribe anytime. Your information is never shared.</p>
+    </div>
+    <p class="seats">Limited to 100 attendees</p>
+  </div>
+
+  <div class="countdown-section">
+    <p class="countdown-label">The training starts in:</p>
+    <div id="countdown" class="countdown-grid">
+      <div class="countdown-box"><span id="cd-days">00</span><small>Days</small></div>
+      <div class="countdown-box"><span id="cd-hours">00</span><small>Hours</small></div>
+      <div class="countdown-box"><span id="cd-minutes">00</span><small>Minutes</small></div>
+      <div class="countdown-box"><span id="cd-seconds">00</span><small>Seconds</small></div>
+    </div>
+  </div>
+
+  <section>
+    <h2>What You'll Learn</h2>
+    <ul class="learn-list">
+      <li>The exact AI video workflow that converts viewers into customers — so you can stop guessing and start measuring</li>
+      <li>How to create professional marketing videos in under 10 minutes using Vidnoz (I'll share the link during the training)</li>
+      <li>Why most AI video content fails to convert — and the 3 fixes that actually work</li>
+      <li>The script-to-publish framework that top affiliates use for consistent results</li>
+      <li>Live demo: building a full video from scratch, including hooks, CTAs, and optimization tips</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Your Host</h2>
+    <div class="speaker">
+      <div class="speaker-avatar">YH</div>
+      <div class="speaker-info">
+        <h3>Your Host</h3>
+        <p class="speaker-title">[Title / Credential — Replace with your bio]</p>
+        <p>[2–3 sentence bio: years of experience, specific results achieved, why qualified to teach this topic. Example: "I've created 200+ AI marketing videos for clients and helped 50+ creators launch their first video campaigns. I've been featured in..."]</p>
+        <p style="margin-top: 12px;"><strong>Helped 500+ creators</strong> launch their first AI video campaigns</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Agenda</h2>
+    <div class="agenda-item">
+      <div class="agenda-time">0:00 — Welcome & Setup</div>
+      <div class="agenda-title">Quick intro and what we'll cover</div>
+      <p class="agenda-desc">Get oriented and make sure your setup is ready for the live demo.</p>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">0:05 — The AI Video Opportunity</div>
+      <div class="agenda-title">Why AI video is the fastest path to affiliate conversions</div>
+      <p class="agenda-desc">The numbers, the trends, and why now is the right time.</p>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">0:15 — Live Demo: Vidnoz</div>
+      <div class="agenda-title">Building a marketing video from scratch</div>
+      <p class="agenda-desc">I'll create a full video live — script, avatar, editing, and export. You'll see the exact tool and workflow.</p>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">0:40 — Conversion Tactics</div>
+      <div class="agenda-title">Hooks, CTAs, and where to place your affiliate link</div>
+      <p class="agenda-desc">How to structure your videos so they drive clicks and signups.</p>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-time">0:55 — Q&A</div>
+      <div class="agenda-title">Your questions answered</div>
+      <p class="agenda-desc">Live Q&A — bring your questions.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Who This Is For</h2>
+    <ul class="who-list">
+      <li>Affiliate marketers who want to add video to their content mix</li>
+      <li>Creators exploring AI video tools for the first time</li>
+      <li>Marketers who need fast, professional video without a production team</li>
+      <li>Anyone promoting AI tools and wants to demonstrate them live</li>
+      <li><strong>This is NOT for you if</strong> you're looking for Hollywood-level production or advanced VFX</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What Attendees Say</h2>
+    <div class="testimonial">
+      <blockquote>"Finally saw a real workflow instead of theory. Signed up for Vidnoz the same day."</blockquote>
+      <cite>— Sarah M., content creator</cite>
+    </div>
+    <div class="testimonial">
+      <blockquote>"The conversion tips alone were worth it. My video CTR went up 40%."</blockquote>
+      <cite>— Mike T., affiliate marketer</cite>
+    </div>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <details class="faq-item">
+      <summary>Is this really free?</summary>
+      <p>Yes. The training is 100% free. No credit card required.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Will there be a replay?</summary>
+      <p>Replay will be available for registered attendees for 48 hours after the live session.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What do I need to bring?</summary>
+      <p>Just a device to watch (phone, tablet, or computer) and an internet connection.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Will you be selling something?</summary>
+      <p>I'll share tools I use, including Vidnoz. If you sign up through my link, I may earn a commission — at no extra cost to you. I only recommend what I actually use.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long is the training?</summary>
+      <p>About 60 minutes, including Q&A.</p>
+    </details>
+  </section>
+
+  <section>
+    <div class="ftc-disclosure">
+      <strong>Disclosure:</strong> This training may reference affiliate products. If you purchase through links I share, I may earn a commission at no extra cost to you. I only recommend products I've personally used or thoroughly evaluated.
+    </div>
+    <h2>Reserve Your Spot</h2>
+    <div class="form-box" style="margin: 0 auto;">
+      <form id="reg-form-2" onsubmit="handleSubmit(event)">
+        <label for="fname2">First Name</label>
+        <input type="text" id="fname2" name="fname" placeholder="Your first name" required>
+        <label for="email2">Email</label>
+        <input type="email" id="email2" name="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn">Reserve My Spot — It's Free</button>
+      </form>
+      <p class="privacy-note">No spam. Unsubscribe anytime. Your information is never shared.</p>
+    </div>
+  </section>
+
+  <footer>
+    Built with <a href="https://list.affitor.com">Affiliate Skills by Affitor</a>
+  </footer>
+
+  <script>
+    // Evergreen mode: always 5 days away. Replace with real date when available.
+    // For real date: return new Date('2025-04-15T19:00:00-05:00');
+    function getEventDate() {
+      const now = new Date();
+      const daysUntilNext = 5;
+      return new Date(now.getTime() + (daysUntilNext * 24 * 60 * 60 * 1000));
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const event = getEventDate();
+      const diff = event - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML =
+          '<div class="countdown-ended" style="font-size: 18px; font-weight: 600;">The training has started! <a href="[CONFIRMATION_URL]">Join now →</a></div>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      // Replace [CONFIRMATION_URL] with your thank-you page or webinar join link
+      window.location.href = '[CONFIRMATION_URL]';
+    }
+  </script>
+</body>
+</html>
