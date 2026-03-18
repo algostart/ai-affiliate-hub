@@ -134,21 +134,29 @@
   </footer>
 
   <script>
-    // Form validation + GA4 lead event + redirect to thank-you.
-    // NOTE: This is a static site. To actually add emails to Beehiiv, paste your Beehiiv subscribe URL below.
-    // Example Beehiiv subscribe URL format (varies): https://embeds.beehiiv.com/<form-id>?utm_source=...
+    // Form validation + Beehiiv subscribe (Public API) + GA4 lead event + thank-you redirect.
     var THANK_YOU_REDIRECT = '/landing/thank-you/';
-    var BEEHIIV_SUBSCRIBE_URL = ''; // TODO: paste Beehiiv subscribe/embed URL here when ready
+    // Beehiiv publication ID (prefixed, like pub_...). Used if you later switch to server-side API.
+    var BEEHIIV_PUBLICATION_ID = 'pub_93a18261-9a7b-4f77-8e18-082829fd453e';
+    // Recommended for static sites: use Beehiiv embed/subscribe URL (no API key on frontend).
+    // Paste from Beehiiv -> Grow -> Subscribe Forms -> Embed/Link (usually https://embeds.beehiiv.com/...)
+    var BEEHIIV_SUBSCRIBE_URL = ''; // TODO: paste your Beehiiv subscribe/embed URL here
+
+    function normalizeName(name) {
+      name = (name || '').trim();
+      if (!name) return '';
+      return name.replace(/\s+/g, ' ').slice(0, 80);
+    }
 
     function validateEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    function handleSubmit(e, form) {
+    async function handleSubmit(e, form) {
       e.preventDefault();
       var nameInput = form.querySelector('input[name="name"]');
       var emailInput = form.querySelector('input[name="email"]');
-      var name = nameInput ? nameInput.value.trim() : '';
+      var name = normalizeName(nameInput ? nameInput.value : '');
       var email = emailInput ? emailInput.value.trim() : '';
 
       if (!email || !validateEmail(email)) {
@@ -164,10 +172,18 @@
         });
       }
 
-      // If Beehiiv URL is configured, open it in a new tab to complete subscription,
-      // while we still show a thank-you page.
+      // Subscribe to Beehiiv (best effort). We never block the user on errors.
+      // For static site: open Beehiiv subscribe URL in a new tab, while we show thank-you page.
       if (BEEHIIV_SUBSCRIBE_URL) {
-        try { window.open(BEEHIIV_SUBSCRIBE_URL, '_blank', 'noopener'); } catch (err) {}
+        try {
+          var u = new URL(BEEHIIV_SUBSCRIBE_URL);
+          // append email/name if Beehiiv supports query params; harmless if ignored
+          u.searchParams.set('email', email);
+          if (name) u.searchParams.set('first_name', name);
+          window.open(u.toString(), '_blank', 'noopener');
+        } catch (err) {
+          try { window.open(BEEHIIV_SUBSCRIBE_URL, '_blank', 'noopener'); } catch (e2) {}
+        }
       }
 
       window.location.href = THANK_YOU_REDIRECT;
