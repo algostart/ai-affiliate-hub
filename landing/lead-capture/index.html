@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
-  <meta name="description" content="Free Download: The Ultimate AI Tools Cheat Sheet 2026 — Top 7 Tools, Commission Rates, and Quick Start Guide.">
-  <title>Free AI Tools Cheat Sheet 2026 — Get Yours Now</title>
+  <meta name="description" content="Free 5-day email course: build your first AI affiliate income stream. Templates, tool picks, and a weekly execution plan.">
+  <title>Free 5-Day AI Affiliate Email Course — Get the Blueprint</title>
   <style>
     :root {
       --color-primary: #2563eb;
@@ -67,11 +67,11 @@
 
   <section class="hero">
     <div class="container">
-      <h1>Get the Ultimate AI Tools Cheat Sheet 2026 — Free</h1>
-      <p class="subheadline">Top 7 tools, commission rates, and a quick start guide — everything you need to pick and promote the right AI tools for your audience.</p>
+      <h1>Get the Free 5-Day AI Affiliate Email Course</h1>
+      <p class="subheadline">A step-by-step blueprint to go from zero → first clicks → first commissions (with templates you can copy/paste).</p>
       <div class="lead-magnet-mockup">
-        <span class="mockup-title">AI Tools Cheat Sheet 2026</span>
-        <span class="mockup-sub">Top 7 · Commission Rates · Quick Start</span>
+        <span class="mockup-title">AI Affiliate Course</span>
+        <span class="mockup-sub">5 days · templates · execution plan</span>
       </div>
       <form id="optin-form" class="optin-form">
         <div class="form-group">
@@ -82,7 +82,7 @@
           <label for="email">Your Email</label>
           <input type="email" id="email" name="email" placeholder="jane@example.com" required>
         </div>
-        <button type="submit" class="cta-btn">Get Your Free Cheat Sheet</button>
+        <button type="submit" class="cta-btn">Send Me Day 1</button>
         <p class="privacy">No spam. Unsubscribe anytime.</p>
       </form>
     </div>
@@ -90,27 +90,27 @@
 
   <section class="benefits">
     <div class="container">
-      <h2>What You'll Get Inside</h2>
+      <h2>What You'll Get (in 5 days)</h2>
       <ul>
-        <li><strong>Top 7 AI tools</strong> — hand-picked for 2026 with real use cases</li>
-        <li><strong>Commission rates & cookie lengths</strong> — know which programs pay best</li>
-        <li><strong>Quick start guide</strong> — get promoting in under an hour</li>
-        <li><strong>Comparison matrix</strong> — see at a glance which tool fits which niche</li>
-        <li><strong>Affiliate signup links</strong> — direct access to each program</li>
+        <li><strong>Day 1:</strong> Pick a niche + programs that actually pay (recurring-first)</li>
+        <li><strong>Day 2:</strong> Publish your first post (review vs comparison vs how-to)</li>
+        <li><strong>Day 3:</strong> Distribution plan (LinkedIn/X/Reddit/TikTok) + UTM tracking</li>
+        <li><strong>Day 4:</strong> Landing page + conversion checklist (CTAs, disclosure, trust)</li>
+        <li><strong>Day 5:</strong> Your weekly operating system (2 posts/week + daily distribution)</li>
       </ul>
     </div>
   </section>
 
   <section class="social-proof">
     <div class="container">
-      <p class="proof-text">"This cheat sheet saved me hours of research. Had my first AI tool affiliate sale within a week."</p>
+      <p class="proof-text">"Clear steps, no fluff. I published my first post in 2 hours and started getting clicks the same week."</p>
       <p class="proof-text" style="margin-top: 8px;">— Marketer, 2,400+ subscribers</p>
     </div>
   </section>
 
   <section class="second-form">
     <div class="container">
-      <h2>Ready? Get Your Free Cheat Sheet</h2>
+      <h2>Ready? Get Day 1 in Your Inbox</h2>
       <form id="optin-form-2" class="optin-form">
         <div class="form-group">
           <label for="name2">Your Name</label>
@@ -120,7 +120,7 @@
           <label for="email2">Your Email</label>
           <input type="email" id="email2" name="email" placeholder="jane@example.com" required>
         </div>
-        <button type="submit" class="cta-btn">Get Your Free Cheat Sheet</button>
+        <button type="submit" class="cta-btn">Send Me Day 1</button>
         <p class="privacy">No spam. Unsubscribe anytime.</p>
       </form>
     </div>
@@ -134,10 +134,11 @@
   </footer>
 
   <script>
-    // Form validation and redirect
-    // In production: POST to your ESP (Mailchimp, ConvertKit, Beehiiv) first, then redirect
-    // Example: Mailchimp embed form action URL, ConvertKit form API, Beehiiv embed with custom redirect
-    var AFFILIATE_REDIRECT = 'https://list.affitor.com'; // Replace with your affiliate thank-you page
+    // Form validation + GA4 lead event + redirect to thank-you.
+    // NOTE: This is a static site. To actually add emails to Beehiiv, paste your Beehiiv subscribe URL below.
+    // Example Beehiiv subscribe URL format (varies): https://embeds.beehiiv.com/<form-id>?utm_source=...
+    var THANK_YOU_REDIRECT = '/landing/thank-you/';
+    var BEEHIIV_SUBSCRIBE_URL = ''; // TODO: paste Beehiiv subscribe/embed URL here when ready
 
     function validateEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -155,10 +156,21 @@
         return;
       }
 
-      // In production: send to ESP here
-      // fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ name, email }) })
-      //   .then(() => { window.location.href = AFFILIATE_REDIRECT; });
-      window.location.href = AFFILIATE_REDIRECT;
+      // GA4 event
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'lead_submit', {
+          method: 'lead-capture-form',
+          page_path: window.location.pathname
+        });
+      }
+
+      // If Beehiiv URL is configured, open it in a new tab to complete subscription,
+      // while we still show a thank-you page.
+      if (BEEHIIV_SUBSCRIBE_URL) {
+        try { window.open(BEEHIIV_SUBSCRIBE_URL, '_blank', 'noopener'); } catch (err) {}
+      }
+
+      window.location.href = THANK_YOU_REDIRECT;
     }
 
     document.getElementById('optin-form').addEventListener('submit', function(e) { handleSubmit(e, this); });

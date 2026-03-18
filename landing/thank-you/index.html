@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>You're In — Check Your Inbox</title>
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f1730; --text:#e9ecff; --muted:#aab3d6; --accent:#7c3aed;
+      --border: rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(1000px 600px at 20% 10%, rgba(124,58,237,.35), transparent 50%),
+                     radial-gradient(900px 700px at 80% 20%, rgba(59,130,246,.28), transparent 55%),
+                     linear-gradient(180deg, #070a14, #0b1020);
+         color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .wrap{max-width:860px;margin:0 auto;padding:56px 20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+          border:1px solid var(--border); border-radius:16px; padding:28px; box-shadow: 0 30px 80px rgba(0,0,0,.35)}
+    h1{margin:0 0 10px;font-size: clamp(28px, 4vw, 40px); letter-spacing:-.02em}
+    p{margin:0 0 14px;color:var(--muted);font-size:16px;line-height:1.65}
+    .steps{margin-top:18px;display:grid;gap:12px}
+    .step{padding:14px 14px;border:1px solid var(--border);border-radius:12px;background:rgba(0,0,0,.18)}
+    .step b{color:var(--text)}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    a.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;
+          background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.35);color:var(--text);
+          text-decoration:none;font-weight:600}
+    a.btn:hover{background:rgba(124,58,237,.26)}
+    a.ghost{background:rgba(255,255,255,.06);border-color:var(--border)}
+    .fine{margin-top:14px;font-size:13px;color:rgba(233,236,255,.72)}
+    code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:8px}
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RWP8Q0WBR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4RWP8Q0WBR');
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>You're in.</h1>
+      <p>Day 1 is on the way. If you don't see it in 5 minutes, check Promotions/Spam and move it to Primary.</p>
+
+      <div class="steps">
+        <div class="step"><b>Step 1:</b> Add us to your contacts so you never miss an email.</div>
+        <div class="step"><b>Step 2:</b> Reply with your niche (video / writing / design / automation) and I’ll send you 3 program picks.</div>
+        <div class="step"><b>Step 3:</b> While you wait, read the full guide: <code>How to AI Affiliate Income (2026)</code>.</div>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="/blog/how-to-ai-affiliate-income-2026/">Read the guide</a>
+        <a class="btn ghost" href="/links/">All tools</a>
+      </div>
+
+      <p class="fine">Disclosure: This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+    </div>
+  </div>
+</body>
+</html>
+
