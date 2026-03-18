@@ -12,6 +12,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RWP8Q0WBR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4RWP8Q0WBR');
+  </script>
 </head>
 <body>
 <nav class="nav">
@@ -249,6 +258,23 @@
 document.querySelectorAll('.reveal').forEach(el => {
   new IntersectionObserver(([e]) => { if(e.isIntersecting){e.target.classList.add('visible');} }, {threshold:.1}).observe(el);
 });
+
+// Outbound click tracking (GA4)
+document.addEventListener('click', function(e){
+  const a = e.target && e.target.closest ? e.target.closest('a') : null;
+  if(!a) return;
+  const href = a.getAttribute('href') || '';
+  if(!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+  let url;
+  try { url = new URL(href, window.location.href); } catch { return; }
+  if(url.hostname === window.location.hostname) return;
+  if(typeof window.gtag !== 'function') return;
+  window.gtag('event', 'outbound_click', {
+    link_url: url.href,
+    link_text: (a.textContent || '').trim().slice(0, 120),
+    page_path: window.location.pathname
+  });
+}, {capture: true});
 </script>
 </body>
 </html>
